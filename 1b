@@ -1,0 +1,74 @@
+import java.util.*;
+
+abstract class Recurso {
+}
+
+class EstacaoFerroviaria {
+    private String sigla;
+    private String descricao;
+    private List<LinhaFerroviaria> linhasFerroviarias;
+    private List<Recurso> recursosFerroviarios;
+
+    public EstacaoFerroviaria(String sigla, String descricao, List<LinhaFerroviaria> linhasFerroviarias, List<Recurso> recursosFerroviarios) {
+        this.sigla = sigla;
+        this.descricao = descricao;
+        this.linhasFerroviarias = linhasFerroviarias;
+        this.recursosFerroviarios = recursosFerroviarios != null ? recursosFerroviarios : new ArrayList<>();
+    }
+}
+
+class LinhaFerroviaria {
+    private int numero;
+    private float extensao;
+    private String descricao;
+
+    public LinhaFerroviaria(int numero, float extensao, String descricao) {
+        this.numero = numero;
+        this.extensao = extensao;
+        this.descricao = descricao;
+    }
+}
+
+class Vagao extends Recurso {
+    private String numeroDeSérie;
+    private String tipo;
+    private Float capacidadeDeCarga;
+    private Float comprimentotesteiras;
+    private Float comprimentoEngates;
+
+    public Vagao(String numeroDeSérie, String tipo, Float capacidadeDeCarga, Float comprimentotesteiras, Float comprimentoEngates) {
+        this.numeroDeSérie = numeroDeSérie;
+        this.tipo = tipo;
+        this.capacidadeDeCarga = capacidadeDeCarga;
+        this.comprimentotesteiras = comprimentotesteiras;
+        this.comprimentoEngates = comprimentoEngates;
+    }
+}
+
+class Locomotiva extends Recurso {
+    private String numeroDeSérie;
+    private Float capacidadeDeTração;
+    private Float comprimento;
+
+    public Locomotiva(String numeroDeSérie, Float capacidadeDeTração, Float comprimento) {
+        this.numeroDeSérie = numeroDeSérie;
+        this.capacidadeDeTração = capacidadeDeTração;
+        this.comprimento = comprimento;
+    }
+}
+
+class Trem extends Recurso {
+    private String prefixo;
+    private Date dataDeFormação;
+    private EstacaoFerroviaria estacaoOrigem;
+    private EstacaoFerroviaria estacaoDestino;
+    private List<Recurso> recursos;
+
+    public Trem(String prefixo, Date dataDeFormação, EstacaoFerroviaria estacaoOrigem, EstacaoFerroviaria estacaoDestino, List<Recurso> recursos) {
+        this.prefixo = prefixo;
+        this.dataDeFormação = dataDeFormação;
+        this.estacaoOrigem = estacaoOrigem;
+        this.estacaoDestino = estacaoDestino;
+        this.recursos = recursos;
+    }
+}
